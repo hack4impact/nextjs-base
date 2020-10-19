@@ -1,0 +1,11 @@
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 75px;
+    cursor: pointer;
+
+    img {
+        border-radius: 3rem;
+    }
+}
