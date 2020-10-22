@@ -1,4 +1,6 @@
-export default function TextField({placeholder, name, type, icon}) {
+import PropTypes from "prop-types";
+
+export default function TextField({name, placeholder, type, icon}) {
     return (
         <div className="field">
         <p className={`control ${icon && "has-icons-left"}`}>
@@ -16,4 +18,11 @@ export default function TextField({placeholder, name, type, icon}) {
         </p>
     </div>
     )
+}
+
+TextField.propTypes = {
+    name: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(["text", "email", "password"]),
+    icon: PropTypes.string
 }

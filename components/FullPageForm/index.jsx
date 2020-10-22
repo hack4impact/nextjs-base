@@ -25,5 +25,6 @@ export default function FullPageForm({title, callbackUrl, header, children}) {
 
 FullPageForm.propTypes = {
   title: PropTypes.string.isRequired,
-  callbackUrl: PropTypes.string.isRequired
+  callbackUrl: PropTypes.string.isRequired,
+  header: PropTypes.element
 }
