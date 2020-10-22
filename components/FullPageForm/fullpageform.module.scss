@@ -1,0 +1,28 @@
+.customContainer {
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-image: linear-gradient(to right, #065798, #83e4c7);
+}
+
+.customForm {
+    background-color: white;
+    width: 350px;
+    height: fit-content;
+    border-radius: 5px;
+    color: black;
+    padding: 1rem 2rem 3rem;
+    box-shadow: 0px 0px 5px 4px #ffffff8f;
+}
+
+.customButton {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.formContent {
+    margin-top: 1rem;
+}

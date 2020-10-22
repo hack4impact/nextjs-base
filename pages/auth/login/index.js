@@ -1,52 +1,25 @@
-import Head from "next/head"
-import Logo from "../../../components/Logo"
 import { useRouter } from "next/router";
 import { csrfToken } from "next-auth/client"
-import styles from "./login.module.scss"
+import FullPageForm from "../../../components/FullPageForm";
+import TextField from "../../../components/Form/TextField";
+import styles from "./login.module.scss";
+import SubmitButton from "../../../components/Form/SubmitButton";
 
 export default function LoginView({csrfToken}) {
     const router = useRouter();
-    return (
+    const header = (
         <>
-        <Head>
-            <title> Login  </title>
-        </Head>
-        <form method="post" action="/api/auth/callback/credentials" className={styles.customContainer}>
-            <div className={styles.loginForm}>
-                <a href="/"><Logo/></a>
-                <p> Login with your username and password </p>
-                {router.query.error && <p style={{color: "red"}}> {router.query.error} </p>}
-                <div style={{marginTop: "1rem"}}>
-                    <input name="csrfToken" type="hidden" defaultValue={csrfToken}/>
-                <div className="field">
-                    <p className="control has-icons-left">
-                        <input 
-                        className="input" 
-                        type="text" 
-                        placeholder="Username"
-                        name="username"/>
-                        <span className="icon is-small is-left">
-                            <i className="fas fa-envelope"></i>
-                        </span>
-                    </p>
-                </div>
-                <div className="field">
-                    <p className="control has-icons-left">
-                        <input 
-                        className="input" 
-                        type="password" 
-                        placeholder="Password" 
-                        name="password"/>
-                        <span className="icon is-small is-left">
-                            <i className="fas fa-lock"></i>
-                        </span>
-                    </p>
-                </div>
-                <button type="submit"> Sign In </button>
-            </div>
-        </div>
-        </form>
+        <p> Login with your username and password </p>
+        {router.query.error && <p className={styles.alert}> {router.query.error} </p>}
         </>
+    )
+    return (
+        <FullPageForm title="Login" callbackUrl="/api/auth/callback/credentials" header={header}>
+                <input name="csrfToken" type="hidden" defaultValue={csrfToken}/>
+                <TextField name="username" placeholder="Username" icon="fa-envelope"/>
+                <TextField type="password" name="password" placeholder="Password" icon="fa-lock"/>
+                <SubmitButton> Sign In </SubmitButton>
+        </FullPageForm>
     )
 }
 
