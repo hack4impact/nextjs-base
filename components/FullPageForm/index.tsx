@@ -1,10 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
 import Logo from '../Logo';
-import PropTypes from "prop-types";
 import styles from './fullpageform.module.scss';
 
-export default function FullPageForm({title, callbackUrl, header, children}) {
+interface Props {
+  title: string,
+  callbackUrl: string,
+  header: React.ReactNode,
+  children: React.ReactNode
+}
+
+export default function FullPageForm({title, callbackUrl, header, children}: Props): React.ReactElement {
   return (
     <>
       <Head>
@@ -21,10 +27,4 @@ export default function FullPageForm({title, callbackUrl, header, children}) {
       </form>
     </>
   );
-}
-
-FullPageForm.propTypes = {
-  title: PropTypes.string.isRequired,
-  callbackUrl: PropTypes.string.isRequired,
-  header: PropTypes.element
 }

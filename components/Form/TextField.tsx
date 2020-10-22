@@ -1,6 +1,13 @@
-import PropTypes from "prop-types";
+import { TextFieldType } from "./types";
 
-export default function TextField({name, placeholder, type, icon}) {
+interface Props {
+    name: string,
+    placeholder: string,
+    type?: TextFieldType,
+    icon?: string
+}
+
+export default function TextField({name, placeholder, type = TextFieldType.text, icon}: Props): React.ReactElement {
     return (
         <div className="field">
         <p className={`control ${icon && "has-icons-left"}`}>
@@ -18,11 +25,4 @@ export default function TextField({name, placeholder, type, icon}) {
         </p>
     </div>
     )
-}
-
-TextField.propTypes = {
-    name: PropTypes.string.isRequired,
-    placeholder: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(["text", "email", "password"]),
-    icon: PropTypes.string
 }

@@ -4,8 +4,9 @@ import FullPageForm from "../../../components/FullPageForm";
 import TextField from "../../../components/Form/TextField";
 import styles from "./login.module.scss";
 import SubmitButton from "../../../components/Form/SubmitButton";
+import { TextFieldType } from "../../../components/Form/types";
 
-export default function LoginView({csrfToken}) {
+export default function LoginView({csrfToken}): React.ReactElement {
     const router = useRouter();
     const header = (
         <>
@@ -17,7 +18,7 @@ export default function LoginView({csrfToken}) {
         <FullPageForm title="Login" callbackUrl="/api/auth/callback/credentials" header={header}>
                 <input name="csrfToken" type="hidden" defaultValue={csrfToken}/>
                 <TextField name="username" placeholder="Username" icon="fa-envelope"/>
-                <TextField type="password" name="password" placeholder="Password" icon="fa-lock"/>
+                <TextField type={TextFieldType.password} name="password" placeholder="Password" icon="fa-lock"/>
                 <SubmitButton> Sign In </SubmitButton>
         </FullPageForm>
     )
