@@ -10,7 +10,8 @@ export default class UserController extends Controller {
         const saltRounds = 5;
         const { body: {username, password} } = this.req;
         if (!username || !password) {
-            return this.sendClientError("You must provide a username or password to signup.");
+            // Here, we pass back  error messages to the client via  a query parameter. 
+            return this.res.redirect("/auth/signup?error=You must provide a username and password to signup.");
         }
 
         bcrypt.hash(password, saltRounds, async (err, hash) => {
@@ -18,7 +19,8 @@ export default class UserController extends Controller {
                 "username": username,
                 "password": hash
             })
-            return this.sendMessage("User successfully registered.")
+            // redirect to login page upon successful registration
+            return this.res.redirect("/auth/login");
         })
 
     }

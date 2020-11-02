@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { csrfToken } from "next-auth/client"
 import FullPageForm from "../../../components/FullPageForm";
 import TextField from "../../../components/Form/TextField";
-import styles from "./login.module.scss";
+import styles from "../auth.module.scss";
 import SubmitButton from "../../../components/Form/SubmitButton";
 import { TextFieldType } from "../../../components/Form/types";
 
