@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
 
-$sidebar-bg-color: #353c49;
-$sidebar-width: 220px;
-$sidebar-link-color: white;
-@import '~react-pro-sidebar/dist/scss/styles.scss';
-
 
 html,
 body {
@@ -41,19 +36,4 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
   font-size: 30px !important;
-}
-
-//Sidebar styles
-
-.pro-sidebar {
-  height: 100vh;
-}
-
-.pro-sidebar .pro-menu .pro-menu-item.active {
-  color: $sidebar-link-color;
-  font-weight: bold;
-}
-
-.pro-sidebar .pro-menu a {
-  color: $sidebar-link-color;
 }
