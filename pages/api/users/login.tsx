@@ -1,4 +1,4 @@
-import { connectToDb } from "../../../server/middleware/database";
+import { connectToDb } from "../../../backend/middleware/database";
 import bcrypt from "bcrypt";
 
 const INVALID_CREDENTIALS_ERROR = "Invalid username or password";

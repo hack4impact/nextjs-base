@@ -21,7 +21,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "server/middleware/database.js"
+    "**/*.tsx", "backend/middleware/database.js"
   ],
   "exclude": [
     "node_modules"
