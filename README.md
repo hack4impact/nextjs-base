@@ -8,7 +8,7 @@ I recommend https://cloud.mongodb.com/ as a cloud provider of choice for hobby M
 
 After creating a database, find the mongodb srv connection string to connect to your database.
 
-Then, replace `<YOUR_DB_URI_HERE>` in the sample.env.local with your connection string. Replace `<YOUR_DB_NAME_HERE>` with the name of the database you setup. Finally, rename sample.env.local to env.local.
+Then, replace `<YOUR_DB_URI_HERE>` in the `sample.env.local` file in the root directory with your connection string. Replace `<YOUR_DB_NAME_HERE>` with the name of the database you setup. Finally, rename `sample.env.local` to `env.local`.
 
 Now, the application should be fully operational. Run it in development mode with the command `npm run dev`. 
 
