@@ -13,7 +13,7 @@ export default function Index({session}){
             This is a starter template with authentication, scss, and other essentials already baked in, 
             so you don't have to waste your time setting up a full stack app.
             {
-                session ? <Link href="/dashboard"> Access your dashboard </Link> : <Link href="/auth/login"> Login to access the Dashboard </Link>
+                session ? <Link href="/dashboard"> Access your dashboard </Link> : <Link href="/auth/login"> Login </Link>
             } 
         </p>
       </Wrapper>
