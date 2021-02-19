@@ -5,6 +5,7 @@ import TextField from "../../../components/Form/TextField";
 import styles from "../auth.module.scss";
 import SubmitButton from "../../../components/Form/SubmitButton";
 import { TextFieldType } from "../../../components/Form/types";
+import { getSession } from "next-auth/client"
 
 export default function LoginView({csrfToken}): React.ReactElement {
     const router = useRouter();
@@ -24,8 +25,18 @@ export default function LoginView({csrfToken}): React.ReactElement {
     )
 }
 
-LoginView.getInitialProps = async (context) => {
-    return {
-        csrfToken: await csrfToken(context)
+export async function getServerSideProps(context){
+    const session = await getSession(context);
+    if (session) {
+        return {
+            redirect: {
+                destination: "/dashboard",
+                permanent: true
+            }
+        }
+    } else {
+        return {
+            props: {csrfToken: await csrfToken(context)}
+        }
     }
 }

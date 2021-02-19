@@ -1,17 +1,25 @@
+import { getSession } from "next-auth/client";
+import Link from "next/link";
 import React from "react";
-import Header from '../components/Layout/Header';
-import styles from "./index.module.scss";
+import Wrapper from "../components/Layout/Wrapper";
 
-export default function index(){
+export default function Index({session}){
   return (
-      <>
-      <Header/>
-      <main className="container main-container">
-          <div className={styles.container}>
-              <h1> Your full stack app begins here </h1>
-              <p> This is the landing page. Users will see this page when they are not logged in. </p>
-          </div>
-      </main>
-      </>
+      <Wrapper session={session}>
+          {
+          }
+        <h1> Welcome to NextJS Base. </h1>
+        <p> 
+            This is a starter template with authentication, scss, and other essentials already baked in, 
+            so you don't have to waste your time setting up a full stack app.
+            {
+                session ? <Link href="/dashboard"> Access your dashboard </Link> : <Link href="/auth/login"> Login to access the Dashboard </Link>
+            } 
+        </p>
+      </Wrapper>
   )
+}
+
+export async function getServerSideProps(context) {
+    return {props: {session: await getSession(context)}}
 }
