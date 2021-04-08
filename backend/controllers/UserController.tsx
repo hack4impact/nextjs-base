@@ -36,9 +36,7 @@ export default class UserController extends Controller {
     async validate(email: string, password: string) {
         const emailValidation = await this.validateEmail(email);
         const passwordValidation = this.validatePassword(password);
-        if (emailValidation) return emailValidation;
-        else if (passwordValidation) return passwordValidation;
-        else return null;
+        return emailValidation || passwordValidation;
     }
 
     async validateEmail(email: string) {
